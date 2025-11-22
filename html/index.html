@@ -8,7 +8,17 @@
 <body>
     <h1>User Information</h1>
     <p id="user"></p>
+    <p id="name"></p>
+    <p>Paragraph 1</p>
+
+
+
+
     <script src="../Array.js"></script>
+    <script> document.getElementById("name").innerHTML = "Hello JavaScript!!"; </script>
+    <script> const elementP = document.getElementsByTagName("p")
+    elementP[0].innerHTML = "This is modified paragraph 1";
+    </script>
     
 </body>
 </html>
