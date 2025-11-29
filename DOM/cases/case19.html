@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 19 - Enviar formularios con fetch (POST)</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 19: Enviar formularios con fetch (POST)</h2>
+    <p><strong>Objetivo:</strong> Enviar datos con fetch POST y mostrar resultado en pantalla.</p>
+    <section id="demo">
+      
+        <form id="postForm">
+          <div><input name="title" placeholder="Título"></div>
+          <div><textarea name="body" placeholder="Cuerpo"></textarea></div>
+          <div><button type="submit">Enviar (POST)</button></div>
+        </form>
+        <div id="result" style="margin-top:8px;color:green"></div>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const form = document.getElementById('postForm');
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const title = form.title.value;
+  const bodyText = form.body.value;
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
+    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({title,body:bodyText})
+  });
+  const data = await res.json();
+  document.getElementById('result').textContent = 'Creado con id: ' + data.id;
+});
+
+</script>
+</body>
+</html>

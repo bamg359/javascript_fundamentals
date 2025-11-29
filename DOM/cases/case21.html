@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 21 - Router básico para SPA (hash routing)</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 21: Router básico para SPA (hash routing)</h2>
+    <p><strong>Objetivo:</strong> Implementar hash routing para cambiar vistas sin recargar.</p>
+    <section id="demo">
+      
+        <nav><a href="#/home">Home</a> | <a href="#/about">About</a> | <a href="#/contact">Contact</a></nav>
+        <div id="view" style="margin-top:12px"></div>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const content = document.getElementById('view');
+function router(){
+  const hash = location.hash || '#/home';
+  const route = hash.replace('#/','');
+  if (route === 'home') content.innerHTML = '<h3>Home</h3><p>Bienvenido</p>';
+  if (route === 'about') content.innerHTML = '<h3>About</h3><p>Acerca de...</p>';
+  if (route === 'contact') content.innerHTML = '<h3>Contact</h3><p>Contacto</p>';
+}
+window.addEventListener('hashchange', router);
+router();
+
+</script>
+</body>
+</html>

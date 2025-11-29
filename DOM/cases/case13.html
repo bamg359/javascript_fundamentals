@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 13 - Tabs navegables (pestañas)</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 13: Tabs navegables (pestañas)</h2>
+    <p><strong>Objetivo:</strong> Cambiar entre pestañas mostrando y ocultando secciones.</p>
+    <section id="demo">
+      
+        <div><button class="tab-btn" data-target="p1">Pestaña 1</button><button class="tab-btn" data-target="p2">Pestaña 2</button></div>
+        <div id="p1" class="tab-panel" style="padding:12px;border:1px solid #eee;margin-top:8px">Contenido 1</div>
+        <div id="p2" class="tab-panel" style="padding:12px;border:1px solid #eee;margin-top:8px">Contenido 2</div>
+        <style>.tab-btn.active{font-weight:700}</style>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.style.display='none');
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.target).style.display = 'block';
+  });
+});
+// activate first
+document.querySelector('.tab-btn').click();
+
+</script>
+</body>
+</html>

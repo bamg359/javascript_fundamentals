@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 04 - Capturar valores desde inputs</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 04: Capturar valores desde inputs</h2>
+    <p><strong>Objetivo:</strong> Leer y mostrar en tiempo real el contenido de un input.</p>
+    <section id="demo">
+      
+        <label>Escribe tu nombre: <input id="name" placeholder="Nombre"></label>
+        <p>Valor en vivo: <strong id="live">(vacío)</strong></p>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const input = document.getElementById('name');
+const output = document.getElementById('live');
+input.addEventListener('input', () => output.textContent = input.value || '(vacío)');
+
+</script>
+</body>
+</html>

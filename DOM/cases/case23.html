@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 23 - Control de estado local (mini store)</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 23: Control de estado local (mini store)</h2>
+    <p><strong>Objetivo:</strong> Manejar un pequeño estado (ej. carrito) y sincronizar el DOM.</p>
+    <section id="demo">
+      
+        <button id="addItem">Agregar al carrito</button>
+        <div id="cart" style="margin-top:8px">Items en carrito: 0</div>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const store = { cart: [], subscribe(fn){ this._cb = fn }, add(item){ this.cart.push(item); this._cb && this._cb(this.cart) } };
+const btn = document.getElementById('addItem');
+const list = document.getElementById('cart');
+store.subscribe(items => {
+  list.textContent = 'Items en carrito: ' + items.length;
+});
+btn.addEventListener('click', ()=> store.add({id:Date.now(),name:'Producto'}));
+
+</script>
+</body>
+</html>

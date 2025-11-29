@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 24 - IntersectionObserver para animaciones al hacer scroll</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 24: IntersectionObserver para animaciones al hacer scroll</h2>
+    <p><strong>Objetivo:</strong> Usar IntersectionObserver para animar elementos al aparecer.</p>
+    <section id="demo">
+      
+        <style>.observe{opacity:0;transform:translateY(20px);transition:all .6s} .observe.visible{opacity:1;transform:none}</style>
+        <div style="height:40vh"></div>
+        <div class="observe" style="padding:14px;border:1px solid #eee">Sección 1</div>
+        <div style="height:20vh"></div>
+        <div class="observe" style="padding:14px;border:1px solid #eee">Sección 2</div>
+        <div style="height:40vh"></div>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const boxes = document.querySelectorAll('.observe');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); });
+}, {threshold:0.4});
+boxes.forEach(b => io.observe(b));
+
+</script>
+</body>
+</html>

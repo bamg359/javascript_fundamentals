@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 08 - Modificar atributos de un elemento</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 08: Modificar atributos de un elemento</h2>
+    <p><strong>Objetivo:</strong> Modificar atributos como src, alt o data-* usando setAttribute.</p>
+    <section id="demo">
+      
+        <img id="image" src="https://picsum.photos/300/120" alt="random" style="display:block;border-radius:8px">
+        <div style="margin-top:8px"><button id="btn-change-src">Cambiar imagen</button></div>
+        <p>data-loaded: <span id="dl">-</span></p>
+        <script>const dlSpan=document.getElementById('dl');setInterval(()=>{const i=document.getElementById('image');dlSpan.textContent=i.dataset.loaded||'-'},500)</script>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const img = document.getElementById('image');
+document.getElementById('btn-change-src').addEventListener('click', () => {
+  img.setAttribute('src', 'https://picsum.photos/seed/' + Math.floor(Math.random()*100) + '/300/120');
+  img.dataset.loaded = Date.now();
+});
+
+</script>
+</body>
+</html>

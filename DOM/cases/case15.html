@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 15 - Formulario con validación y mensajes dinámicos</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 15: Formulario con validación y mensajes dinámicos</h2>
+    <p><strong>Objetivo:</strong> Validar inputs y mostrar mensajes de error dinámicos.</p>
+    <section id="demo">
+      
+        <form id="form">
+          <div><label>Nombre: <input name="name"></label></div>
+          <div><label>Email: <input name="email"></label></div>
+          <div id="error" style="color:red;margin-top:8px"></div>
+          <div style="margin-top:8px"><button type="submit">Enviar</button></div>
+        </form>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const form = document.getElementById('form');
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const name = form.querySelector('[name=name]').value.trim();
+  const email = form.querySelector('[name=email]').value.trim();
+  const err = document.getElementById('error');
+  err.textContent = '';
+  if (!name) return err.textContent = 'Nombre requerido';
+  if (!/\S+@\S+\.\S+/.test(email)) return err.textContent = 'Email inválido';
+  err.style.color='green'; err.textContent='Enviado correctamente';
+});
+
+</script>
+</body>
+</html>

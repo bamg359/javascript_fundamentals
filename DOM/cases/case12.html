@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 12 - Menú hamburguesa responsivo</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 12: Menú hamburguesa responsivo</h2>
+    <p><strong>Objetivo:</strong> Mostrar/ocultar un menú hamburguesa en pantallas pequeñas.</p>
+    <section id="demo">
+      
+        <button id="burger">☰</button>
+        <nav id="nav" style="display:none;margin-top:8px">
+          <a href="#">Home</a> | <a href="#">About</a> | <a href="#">Contact</a>
+        </nav>
+        <style>#nav.open{display:block}</style>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const btn = document.getElementById('burger');
+const nav = document.getElementById('nav');
+btn.addEventListener('click', () => nav.classList.toggle('open'));
+
+</script>
+</body>
+</html>

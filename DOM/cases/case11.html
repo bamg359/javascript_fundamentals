@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 11 - Crear un modal con apertura y cierre</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 11: Crear un modal con apertura y cierre</h2>
+    <p><strong>Objetivo:</strong> Abrir y cerrar un modal controlando clases y overlay.</p>
+    <section id="demo">
+      
+        <button id="openModal">Abrir modal</button>
+        <div id="modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.4)">
+          <div style="background:white;padding:18px;border-radius:8px;min-width:280px;position:relative">
+            <button id="closeModal" style="position:absolute;right:8px;top:8px">X</button>
+            <h3>Modal</h3>
+            <p>Contenido del modal.</p>
+          </div>
+        </div>
+        <style>#modal.show{display:flex}</style>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const openBtn = document.getElementById('openModal');
+const modal = document.getElementById('modal');
+const closeBtn = document.getElementById('closeModal');
+openBtn.addEventListener('click', () => modal.classList.add('show'));
+closeBtn.addEventListener('click', () => modal.classList.remove('show'));
+modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
+
+</script>
+</body>
+</html>

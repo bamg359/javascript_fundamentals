@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 02 - Cambiar estilos CSS con JavaScript</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 02: Cambiar estilos CSS con JavaScript</h2>
+    <p><strong>Objetivo:</strong> Cambiar propiedades CSS como background o color desde JS.</p>
+    <section id="demo">
+      
+        <div id="box" style="padding:16px;border-radius:8px">Caja de ejemplo</div>
+        <div style="margin-top:12px">
+          <button id="btn-bg">Toggle background</button>
+          <button id="btn-color">Toggle text color</button>
+        </div>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const box = document.getElementById('box');
+document.getElementById('btn-bg').addEventListener('click', () => {
+  box.style.background = box.style.background === 'lightcoral' ? '' : 'lightcoral';
+});
+document.getElementById('btn-color').addEventListener('click', () => {
+  box.style.color = box.style.color === 'white' ? '' : 'white';
+});
+
+</script>
+</body>
+</html>

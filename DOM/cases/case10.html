@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 10 - Capturar múltiples elementos con querySelectorAll</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 10: Capturar múltiples elementos con querySelectorAll</h2>
+    <p><strong>Objetivo:</strong> Seleccionar múltiples nodos con querySelectorAll y recorrerlos.</p>
+    <section id="demo">
+      
+        <div class="colorable" style="padding:8px;border:1px solid #eee">Item 1</div>
+        <div class="colorable" style="padding:8px;border:1px solid #eee;margin-top:6px">Item 2</div>
+        <div class="colorable" style="padding:8px;border:1px solid #eee;margin-top:6px">Item 3</div>
+        <button id="btn-purple" style="margin-top:8px">Aplicar estilo a todos</button>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const items = document.querySelectorAll('.colorable');
+document.getElementById('btn-purple').addEventListener('click', () => {
+  items.forEach(it => it.style.background = it.style.background ? '' : 'lavender');
+});
+
+</script>
+</body>
+</html>

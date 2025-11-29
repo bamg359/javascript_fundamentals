@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 06 - Insertar elementos en posiciones específicas</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 06: Insertar elementos en posiciones específicas</h2>
+    <p><strong>Objetivo:</strong> Insertar elementos con before, after, prepend o append.</p>
+    <section id="demo">
+      
+        <ul id="taskList"><li>Primera tarea</li><li>Segunda tarea</li><li>Tercera tarea</li></ul>
+        <button id="btn-prepend">Agregar arriba</button>
+        <button id="btn-insertAfter">Insertar después de la 2</button>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const list = document.getElementById('taskList');
+document.getElementById('btn-prepend').addEventListener('click', () => {
+  const li = document.createElement('li');
+  li.textContent = 'Tarea nueva (prepend)';
+  list.prepend(li);
+});
+document.getElementById('btn-insertAfter').addEventListener('click', () => {
+  const li = document.createElement('li');
+  li.textContent = 'Tarea nueva 3 (after)';
+  const ref = list.querySelector('li:nth-child(3)');
+  ref.after(li);
+});
+
+</script>
+</body>
+</html>

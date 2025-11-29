@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 01 - Cambiar el texto de un elemento al hacer clic</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 01: Cambiar el texto de un elemento al hacer clic</h2>
+    <p><strong>Objetivo:</strong> Al hacer clic en un botón, cambiar el texto de un párrafo.</p>
+    <section id="demo">
+      
+        <p id="text">Hola</p>
+        <button id="btn-change">Cambiar texto</button>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const btn = document.getElementById("btn-change");
+const p = document.getElementById("text");
+btn.addEventListener('click', () => p.textContent = p.textContent === 'Hola' ? 'Bienvenidos' : 'Hola');
+
+</script>
+</body>
+</html>

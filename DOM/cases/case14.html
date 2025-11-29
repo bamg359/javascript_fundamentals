@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 14 - Slider básico (siguiente/anterior)</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 14: Slider básico (siguiente/anterior)</h2>
+    <p><strong>Objetivo:</strong> Controlar índice para mostrar la siguiente o anterior tarjeta.</p>
+    <section id="demo">
+      
+        <div style="max-width:320px">
+          <div class="slide" style="padding:12px;border:1px solid #ddd">Slide 1</div>
+          <div class="slide" style="padding:12px;border:1px solid #ddd">Slide 2</div>
+          <div class="slide" style="padding:12px;border:1px solid #ddd">Slide 3</div>
+          <div style="margin-top:8px"><button id="prev">Prev</button><button id="next">Next</button></div>
+        </div>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const slides = document.querySelectorAll('.slide');
+let idx = 0;
+function show(){ slides.forEach(s=>s.style.display='none'); slides[idx].style.display='block'; }
+document.getElementById('next').addEventListener('click', ()=>{ idx=(idx+1)%slides.length; show(); });
+document.getElementById('prev').addEventListener('click', ()=>{ idx=(idx-1+slides.length)%slides.length; show(); });
+show();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 20 - Notificaciones dinámicas que desaparecen solas (toasts)</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 20: Notificaciones dinámicas que desaparecen solas (toasts)</h2>
+    <p><strong>Objetivo:</strong> Crear toasts que desaparecen automáticamente tras unos segundos.</p>
+    <section id="demo">
+      
+        <button id="btn-toast">Mostrar toast</button>
+        <style>
+        .toast{position:fixed;right:16px;bottom:-60px;padding:10px 14px;border-radius:8px;background:#222;color:white;transition:all .3s;opacity:0}
+        .toast.visible{bottom:16px;opacity:1}
+        </style>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+function showToast(msg, time=3000){
+  const t = document.createElement('div');
+  t.className='toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(()=> t.classList.add('visible'), 10);
+  setTimeout(()=> t.classList.remove('visible'), time);
+  setTimeout(()=> t.remove(), time+300);
+}
+document.getElementById('btn-toast').addEventListener('click', ()=> showToast('Operación realizada') );
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 05 - Crear un nuevo elemento y agregarlo al DOM</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 05: Crear un nuevo elemento y agregarlo al DOM</h2>
+    <p><strong>Objetivo:</strong> Crear elementos con createElement y agregarlos con appendChild.</p>
+    <section id="demo">
+      
+        <ul id="comments"><li>Comentario 1</li><li>Comentario 2</li></ul>
+        <button id="btn-add">Agregar comentario</button>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const list = document.getElementById('comments');
+document.getElementById('btn-add').addEventListener('click', () => {
+  const li = document.createElement('li');
+  li.textContent = 'Comentario nuevo - ' + new Date().toLocaleTimeString();
+  list.appendChild(li);
+});
+
+</script>
+</body>
+</html>

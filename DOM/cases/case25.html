@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 25 - Cargar fragmentos HTML de forma dinámica (pseudo–SPA)</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 25: Cargar fragmentos HTML de forma dinámica (pseudo–SPA)</h2>
+    <p><strong>Objetivo:</strong> Cargar fragmentos HTML (partials) por fetch y mostrarlos.</p>
+    <section id="demo">
+      
+        <div id="nav"></div>
+        <div id="out" style="margin-top:8px;border:1px solid #eee;padding:12px">Zona de carga</div>
+        <button id="btn-load" style="margin-top:8px">Cargar partial "home"</button>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+async function loadPartial(name){
+  const res = await fetch('partials/' + name + '.html');
+  document.getElementById('out').innerHTML = await res.text();
+}
+document.getElementById('btn-load').addEventListener('click', ()=> loadPartial('home'));
+// load nav on start
+fetch('partials/nav.html').then(r=>r.text()).then(t=>document.getElementById('nav').innerHTML=t);
+
+</script>
+</body>
+</html>

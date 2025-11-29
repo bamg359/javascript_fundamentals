@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 09 - Delegación de eventos</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 09: Delegación de eventos</h2>
+    <p><strong>Objetivo:</strong> Usar event delegation para gestionar eventos en elementos dinámicos.</p>
+    <section id="demo">
+      
+        <ul id="dynamicList"><li>Elemento estatico <button class="done">Hecho</button> <button class="del">Borrar</button></li></ul>
+        <button id="btn-new">Agregar elemento dinámico</button>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const list = document.getElementById('dynamicList');
+document.getElementById('btn-new').addEventListener('click', () => {
+  const id = Date.now();
+  const li = document.createElement('li');
+  li.innerHTML = `Elemento ${id} <button class="done">Hecho</button> <button class="del">Borrar</button>`;
+  list.appendChild(li);
+});
+list.addEventListener('click', (e) => {
+  if (e.target.matches('.done')) {
+    e.target.closest('li').style.textDecoration = 'line-through';
+  } else if (e.target.matches('.del')) {
+    e.target.closest('li').remove();
+  }
+});
+
+</script>
+</body>
+</html>

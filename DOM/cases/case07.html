@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 07 - Eliminar elementos del DOM</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 07: Eliminar elementos del DOM</h2>
+    <p><strong>Objetivo:</strong> Eliminar nodos con remove() y removeChild().</p>
+    <section id="demo">
+      
+        <div id="cards">
+          <div class="card" style="padding:12px;border:1px solid #ddd;margin-bottom:8px">
+            <strong>Tarjeta A</strong> <button class="remove">Eliminar</button>
+          </div>
+          <div class="card" style="padding:12px;border:1px solid #ddd;margin-bottom:8px">
+            <strong>Tarjeta B</strong> <button class="remove">Eliminar</button>
+          </div>
+        </div>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const cards = document.getElementById('cards');
+cards.addEventListener('click', (e) => {
+  if (e.target.matches('.remove')) {
+    const card = e.target.closest('.card');
+    card.remove();
+  }
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caso 18 - Buscador con filtro en vivo</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:28px auto;">
+    <h2>Caso 18: Buscador con filtro en vivo</h2>
+    <p><strong>Objetivo:</strong> Filtrar una lista en tiempo real según texto ingresado.</p>
+    <section id="demo">
+      
+        <input id="filter" placeholder="Filtrar productos...">
+        <ul id="products"></ul>
+        
+    </section>
+    <a href="../index.html">← Volver al índice</a>
+  </main>
+<script>
+
+const items = ['Manzana','Banana','Cereza','Dátil','Elderberry','Fresa'];
+const list = document.getElementById('products');
+const input = document.getElementById('filter');
+function render(filter='') {
+  list.innerHTML = '';
+  items.filter(i=> i.toLowerCase().includes(filter.toLowerCase())).forEach(it=>{
+    const li = document.createElement('li'); li.textContent = it; list.appendChild(li);
+  });
+}
+input.addEventListener('input',(e)=> render(e.target.value));
+render();
+
+</script>
+</body>
+</html>
